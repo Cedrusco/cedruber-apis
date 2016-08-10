@@ -1,0 +1,12 @@
+{
+  "mongoDS": {
+    "url": "mongodb://michael:bae@ds023475.mlab.com:23475/cedruber",
+    "name": "mongoDS",
+    "connector": "mongodb"
+  },
+  "mysqlDS": {
+    "url": "mysql://b629b9c01be885:b010e61f@us-cdbr-iron-east-04.cleardb.net/ad_41cfda6e484c2af",
+    "name": "mysqlDS",
+    "connector": "mysql"
+  }
+}

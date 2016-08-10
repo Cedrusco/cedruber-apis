@@ -1,0 +1,30 @@
+product: 1.0.0
+info:
+  name: users-product
+  title: users-product
+  version: 1.0.1
+visibility:
+  view:
+    type: public
+  subscribe:
+    type: authenticated
+plans:
+  stingy:
+    title: Stingy
+    apis: {}
+    rate-limits:
+      once/week:
+        value: 1/1week
+  default:
+    title: Default Plan
+    description: Default Plan
+    approval: false
+    rate-limits:
+      per-minute:
+        value: 100/minute
+        hard-limit: false
+apis:
+  customers-api:
+    $ref: customers-api_1.0.1.yaml
+  drivers-api:
+    $ref: ../drivers-api.yaml

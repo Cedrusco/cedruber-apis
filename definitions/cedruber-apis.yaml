@@ -1,0 +1,822 @@
+paths:
+  /Customers/status:
+    post:
+      responses:
+        '200':
+          description: 200 OK
+          schema:
+            type: string
+      operationId: Customer.status
+  /Customers:
+    post:
+      tags:
+        - Customer
+      summary: Create a new instance of the model and persist it into the data source.
+      operationId: Customer.create
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            $ref: '#/definitions/Customer'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Customer'
+      deprecated: false
+    put:
+      tags:
+        - Customer
+      summary: >-
+        Update an existing model instance or insert a new one into the data
+        source.
+      operationId: Customer.upsert
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            $ref: '#/definitions/Customer'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Customer'
+      deprecated: false
+    get:
+      tags:
+        - Customer
+      summary: Find all instances of the model matched by filter from the data source.
+      operationId: Customer.find
+      parameters:
+        - name: filter
+          in: query
+          description: 'Filter defining fields, where, include, order, offset, and limit'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Customer'
+      deprecated: false
+  '/Customers/{id}/exists':
+    get:
+      tags:
+        - Customer
+      summary: Check whether a model instance exists in the data source.
+      operationId: 'Customer.exists__get_Customers_{id}_exists'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              exists:
+                type: boolean
+      deprecated: false
+  '/Customers/{id}':
+    head:
+      tags:
+        - Customer
+      summary: Check whether a model instance exists in the data source.
+      operationId: 'Customer.exists__head_Customers_{id}'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              exists:
+                type: boolean
+      deprecated: false
+    get:
+      tags:
+        - Customer
+      summary: Find a model instance by id from the data source.
+      operationId: Customer.findById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          description: Filter defining fields and include
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Customer'
+      deprecated: false
+    delete:
+      tags:
+        - Customer
+      summary: Delete a model instance by id from the data source.
+      operationId: Customer.deleteById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+      deprecated: false
+    put:
+      tags:
+        - Customer
+      summary: >-
+        Update attributes for a model instance and persist it into the data
+        source.
+      operationId: Customer.prototype.updateAttributes
+      parameters:
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            $ref: '#/definitions/Customer'
+        - name: id
+          in: path
+          description: PersistedModel id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Customer'
+      deprecated: false
+  /Customers/findOne:
+    get:
+      tags:
+        - Customer
+      summary: Find first instance of the model matched by filter from the data source.
+      operationId: Customer.findOne
+      parameters:
+        - name: filter
+          in: query
+          description: 'Filter defining fields, where, include, order, offset, and limit'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Customer'
+      deprecated: false
+  /Customers/update:
+    post:
+      tags:
+        - Customer
+      summary: Update instances of the model matched by where from the data source.
+      operationId: Customer.updateAll
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            $ref: '#/definitions/Customer'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            description: The number of instances updated
+            type: object
+      deprecated: false
+  /Customers/count:
+    get:
+      tags:
+        - Customer
+      summary: Count instances of the model matched by where from the data source.
+      operationId: Customer.count
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+  /Drivers:
+    post:
+      tags:
+        - Driver
+      summary: Create a new instance of the model and persist it into the data source.
+      operationId: Driver.create
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            $ref: '#/definitions/Driver'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Driver'
+      deprecated: false
+    put:
+      tags:
+        - Driver
+      summary: >-
+        Update an existing model instance or insert a new one into the data
+        source.
+      operationId: Driver.upsert
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            $ref: '#/definitions/Driver'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Driver'
+      deprecated: false
+    get:
+      tags:
+        - Driver
+      summary: Find all instances of the model matched by filter from the data source.
+      operationId: Driver.find
+      parameters:
+        - name: filter
+          in: query
+          description: 'Filter defining fields, where, include, order, offset, and limit'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Driver'
+      deprecated: false
+  '/Drivers/{id}/exists':
+    get:
+      tags:
+        - Driver
+      summary: Check whether a model instance exists in the data source.
+      operationId: 'Driver.exists__get_Drivers_{id}_exists'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              exists:
+                type: boolean
+      deprecated: false
+  '/Drivers/{id}':
+    head:
+      tags:
+        - Driver
+      summary: Check whether a model instance exists in the data source.
+      operationId: 'Driver.exists__head_Drivers_{id}'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              exists:
+                type: boolean
+      deprecated: false
+    get:
+      tags:
+        - Driver
+      summary: Find a model instance by id from the data source.
+      operationId: Driver.findById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          description: Filter defining fields and include
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Driver'
+      deprecated: false
+    delete:
+      tags:
+        - Driver
+      summary: Delete a model instance by id from the data source.
+      operationId: Driver.deleteById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+      deprecated: false
+    put:
+      tags:
+        - Driver
+      summary: >-
+        Update attributes for a model instance and persist it into the data
+        source.
+      operationId: Driver.prototype.updateAttributes
+      parameters:
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            $ref: '#/definitions/Driver'
+        - name: id
+          in: path
+          description: PersistedModel id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Driver'
+      deprecated: false
+  /Drivers/findOne:
+    get:
+      tags:
+        - Driver
+      summary: Find first instance of the model matched by filter from the data source.
+      operationId: Driver.findOne
+      parameters:
+        - name: filter
+          in: query
+          description: 'Filter defining fields, where, include, order, offset, and limit'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Driver'
+      deprecated: false
+  /Drivers/update:
+    post:
+      tags:
+        - Driver
+      summary: Update instances of the model matched by where from the data source.
+      operationId: Driver.updateAll
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            $ref: '#/definitions/Driver'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            description: The number of instances updated
+            type: object
+      deprecated: false
+  /Drivers/count:
+    get:
+      tags:
+        - Driver
+      summary: Count instances of the model matched by where from the data source.
+      operationId: Driver.count
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+  /Vehicles:
+    post:
+      tags:
+        - Vehicle
+      summary: Create a new instance of the model and persist it into the data source.
+      operationId: Vehicle.create
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            $ref: '#/definitions/Vehicle'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Vehicle'
+      deprecated: false
+    put:
+      tags:
+        - Vehicle
+      summary: >-
+        Update an existing model instance or insert a new one into the data
+        source.
+      operationId: Vehicle.upsert
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            $ref: '#/definitions/Vehicle'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Vehicle'
+      deprecated: false
+    get:
+      tags:
+        - Vehicle
+      summary: Find all instances of the model matched by filter from the data source.
+      operationId: Vehicle.find
+      parameters:
+        - name: filter
+          in: query
+          description: 'Filter defining fields, where, include, order, offset, and limit'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Vehicle'
+      deprecated: false
+  '/Vehicles/{id}/exists':
+    get:
+      tags:
+        - Vehicle
+      summary: Check whether a model instance exists in the data source.
+      operationId: 'Vehicle.exists__get_Vehicles_{id}_exists'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              exists:
+                type: boolean
+      deprecated: false
+  '/Vehicles/{id}':
+    head:
+      tags:
+        - Vehicle
+      summary: Check whether a model instance exists in the data source.
+      operationId: 'Vehicle.exists__head_Vehicles_{id}'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              exists:
+                type: boolean
+      deprecated: false
+    get:
+      tags:
+        - Vehicle
+      summary: Find a model instance by id from the data source.
+      operationId: Vehicle.findById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          description: Filter defining fields and include
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Vehicle'
+      deprecated: false
+    delete:
+      tags:
+        - Vehicle
+      summary: Delete a model instance by id from the data source.
+      operationId: Vehicle.deleteById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+      deprecated: false
+    put:
+      tags:
+        - Vehicle
+      summary: >-
+        Update attributes for a model instance and persist it into the data
+        source.
+      operationId: Vehicle.prototype.updateAttributes
+      parameters:
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            $ref: '#/definitions/Vehicle'
+        - name: id
+          in: path
+          description: PersistedModel id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Vehicle'
+      deprecated: false
+  /Vehicles/findOne:
+    get:
+      tags:
+        - Vehicle
+      summary: Find first instance of the model matched by filter from the data source.
+      operationId: Vehicle.findOne
+      parameters:
+        - name: filter
+          in: query
+          description: 'Filter defining fields, where, include, order, offset, and limit'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Vehicle'
+      deprecated: false
+  /Vehicles/update:
+    post:
+      tags:
+        - Vehicle
+      summary: Update instances of the model matched by where from the data source.
+      operationId: Vehicle.updateAll
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            $ref: '#/definitions/Vehicle'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            description: The number of instances updated
+            type: object
+      deprecated: false
+  /Vehicles/count:
+    get:
+      tags:
+        - Vehicle
+      summary: Count instances of the model matched by where from the data source.
+      operationId: Vehicle.count
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+definitions:
+  Customer:
+    properties:
+      email:
+        description: Customer Email
+        type: string
+      name:
+        description: Customer Name
+        type: string
+      phone:
+        description: Customer Phone Number
+        type: string
+      id:
+        type: number
+        format: double
+    required:
+      - email
+      - name
+      - phone
+    additionalProperties: false
+  x-any:
+    properties: {}
+  Driver:
+    properties:
+      name:
+        description: Driver Name
+        type: string
+      phone:
+        description: Driver Phone
+        type: string
+      id:
+        type: number
+        format: double
+    required:
+      - name
+      - phone
+    additionalProperties: false
+  Vehicle:
+    properties:
+      make:
+        type: string
+      model:
+        type: string
+      color:
+        type: string
+      id:
+        $ref: '#/definitions/ObjectID'
+    required:
+      - make
+      - model
+      - color
+    additionalProperties: false
+  ObjectID:
+    type: string
+    pattern: '^[a-fA-F\d]{24}$'
+swagger: '2.0'
+info:
+  x-ibm-name: cedruber-apis
+  version: 1.0.0
+  title: cedruber-apis
+schemes:
+  - https
+host: $(catalog.host)
+basePath: /api
+consumes:
+  - application/json
+produces:
+  - application/json
+securityDefinitions:
+  clientIdHeader:
+    type: apiKey
+    in: header
+    name: X-IBM-Client-Id
+  clientSecretHeader:
+    in: header
+    name: X-IBM-Client-Secret
+    type: apiKey
+security:
+  - clientIdHeader: []
+    clientSecretHeader: []
+x-ibm-configuration:
+  testable: true
+  enforced: true
+  cors:
+    enabled: true
+  catalogs:
+    apic-dev:
+      properties:
+        runtime-url: $(TARGET_URL)
+    sb:
+      properties:
+        runtime-url: 'http://localhost:4001'
+  assembly:
+    execute:
+      - invoke:
+          target-url: $(runtime-url)$(request.path)$(request.search)

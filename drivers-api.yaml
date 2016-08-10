@@ -1,0 +1,301 @@
+paths:
+  /Drivers:
+    post:
+      tags:
+        - Driver
+      summary: Create a new instance of the model and persist it into the data source.
+      operationId: Driver.create
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            $ref: '#/definitions/Driver'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Driver'
+      deprecated: false
+    put:
+      tags:
+        - Driver
+      summary: >-
+        Update an existing model instance or insert a new one into the data
+        source.
+      operationId: Driver.upsert
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            $ref: '#/definitions/Driver'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Driver'
+      deprecated: false
+    get:
+      tags:
+        - Driver
+      summary: Find all instances of the model matched by filter from the data source.
+      operationId: Driver.find
+      parameters:
+        - name: filter
+          in: query
+          description: 'Filter defining fields, where, include, order, offset, and limit'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Driver'
+      deprecated: false
+  '/Drivers/{id}/exists':
+    get:
+      tags:
+        - Driver
+      summary: Check whether a model instance exists in the data source.
+      operationId: 'Driver.exists__get_Drivers_{id}_exists'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              exists:
+                type: boolean
+      deprecated: false
+  '/Drivers/{id}':
+    head:
+      tags:
+        - Driver
+      summary: Check whether a model instance exists in the data source.
+      operationId: 'Driver.exists__head_Drivers_{id}'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              exists:
+                type: boolean
+      deprecated: false
+    get:
+      tags:
+        - Driver
+      summary: Find a model instance by id from the data source.
+      operationId: Driver.findById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          description: Filter defining fields and include
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Driver'
+      deprecated: false
+    delete:
+      tags:
+        - Driver
+      summary: Delete a model instance by id from the data source.
+      operationId: Driver.deleteById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+      deprecated: false
+    put:
+      tags:
+        - Driver
+      summary: >-
+        Update attributes for a model instance and persist it into the data
+        source.
+      operationId: Driver.prototype.updateAttributes
+      parameters:
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            $ref: '#/definitions/Driver'
+        - name: id
+          in: path
+          description: PersistedModel id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Driver'
+      deprecated: false
+  /Drivers/findOne:
+    get:
+      tags:
+        - Driver
+      summary: Find first instance of the model matched by filter from the data source.
+      operationId: Driver.findOne
+      parameters:
+        - name: filter
+          in: query
+          description: 'Filter defining fields, where, include, order, offset, and limit'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Driver'
+      deprecated: false
+  /Drivers/update:
+    post:
+      tags:
+        - Driver
+      summary: Update instances of the model matched by where from the data source.
+      operationId: Driver.updateAll
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            $ref: '#/definitions/Driver'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            description: The number of instances updated
+            type: object
+      deprecated: false
+  /Drivers/count:
+    get:
+      tags:
+        - Driver
+      summary: Count instances of the model matched by where from the data source.
+      operationId: Driver.count
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+definitions:
+  x-any:
+    properties: {}
+  Driver:
+    properties:
+      name:
+        description: Driver Name
+        type: string
+      phone:
+        description: Driver Phone
+        type: string
+      id:
+        type: number
+        format: double
+    required:
+      - name
+      - phone
+    additionalProperties: false
+swagger: '2.0'
+info:
+  x-ibm-name: drivers-api
+  version: 1.0.0
+  title: drivers-api
+schemes:
+  - https
+host: $(catalog.host)
+basePath: /api
+consumes:
+  - application/json
+produces:
+  - application/json
+securityDefinitions:
+  clientId:
+    type: apiKey
+    in: query
+    name: client_id
+  clientSecret:
+    in: query
+    name: client_secret
+    type: apiKey
+security:
+  - {}
+x-ibm-configuration:
+  testable: true
+  enforced: true
+  cors:
+    enabled: true
+  catalogs:
+    apic-dev:
+      properties:
+        runtime-url: $(TARGET_URL)
+    sb:
+      properties:
+        runtime-url: 'http://localhost:4001'
+  assembly:
+    execute:
+      - invoke:
+          target-url: 'https://cedruber2.mybluemix.net$(request.path)$(request.search)'
+          tls-profile: 'client:Loopback-client'
+    catch: []
+  gateway: datapower-gateway
